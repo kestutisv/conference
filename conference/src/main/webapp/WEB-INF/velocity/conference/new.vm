@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>New conference</title>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.min.css" type="text/css">
+        #parse("blocks/head.vm")
+    </head>
+    <body>
+	    <nav id="top-bar">
+				<a href="/conference/list">Conferences</a> | <a href="/conference/new">Create a conference (if not logged in then redirects to register in the system)</a>
+				<div id="login"><a href="/conference/login">Sign in</a> | <a href="/conference/register">Sign on</a> OR else _Profile_ | _Logout_</div>
+		</nav>
+		<div id="top-bar-2"></div>
+		<div id="wrapper">
+		
+<form method="post" action="/conference/new">
+    <div class="formGroup">
+        <label for="formName">name</label>
+        <input type="text" name="name" id="formName" value="" />
+    </div>
+    <div class="formGroup">
+        <label for="formStart">Start date</label>
+        <input type="text" name="startDate" value="" id="formStart" class="datePicker" />
+    </div>
+    <div class="formGroup">
+        <label for="formEnd">End date</label>
+        <input type="text" name="endDate" value="" id="formEnd" class="datePicker" />
+    </div>
+    <div id="tags" class="formGroup">
+    	<div id="tags-title">Tags:</div>
+    	<input type="checkbox" name="tag[]" value="workshop" id="workshop"> <label for="workshop">Workshop</label>
+    	<input type="checkbox" name="tag[]" value="lecture" id="lecture"> <label for="lecture">Lecture</label>
+    	<input type="checkbox" name="tag[]" value="seminar" id="seminar"> <label for="seminar">Seminar</label>
+    	<input type="checkbox" name="tag[]" value="conference" id="tconference"> <label for="tconference">Conference</label>
+    	<input type="checkbox" name="tag[]" value="symposium" id="symposium"> <label for="symposium">Symposium</label>
+    	<input type="checkbox" name="tag[]" value="colloquium" id="colloquium"> <label for="colloquium">Colloquium</label>
+    	<input type="checkbox" name="tag[]" value="roundtable" id="roundtable"> <label for="roundtable">Roundtable</label>
+    </div>
+    <div class="formGroup">
+        <label for="description">Description</label>
+        <textarea name="description" id="description"></textarea>
+    </div>
+    <div class="formGroup">
+        <label for="location">Location</label>
+        <!-- <input type="text" name="location" id="location" value="" placeholder="Address" /> -->
+        <textarea name="description" id="description" placeholder="Address"></textarea>
+    </div>
+    <div class="formGroup">
+    	<input type="submit" value="Create">
+    </div>
+</form>
+		</div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script src="/resources/js/list.js"></script>
+    </body>
+</html>

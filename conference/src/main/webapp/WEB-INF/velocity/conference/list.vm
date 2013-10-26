@@ -6,33 +6,76 @@
         #parse("blocks/head.vm")
     </head>
     <body>
-        <form method="post" action="" id="filters">
-            <fieldset>
-                <legend>Search filter</legend>
-                <div class="formGroup">
-                    <label for="filterStart">Start date</label>
-                    <input type="text" name="start" value="$startDate" id="filterStart" class="datePicker">
-                </div>
-                <div class="formGroup">
-                    <label for="filterEnd">End date</label>
-                    <input type="text" name="end" value="$endDate" id="filterEnd" class="datePicker">
-                </div>
-                <div class="formGroup">
-                    <input type="submit" value="Search">
-                    <input type="reset" value="Reset">
-                </div>
-            </fieldset>
-        </form>
-
-        <fieldset>
-            <legend>Conference list:</legend>
-            <div id="conference">
-                #if ($conferenceList)
-                    #parse("conference/items.vm")
-                #end
-            </div>
-        </fieldset>
-        <div id="conferenceForm"></div>
+	    <nav id="top-bar">
+				<a href="/conference/list">Conferences</a> | <a href="/conference/new">Create a conference (if not logged in then redirects to register in the system)</a>
+				<div id="login"><a href="/conference/login">Sign in</a> | <a href="/conference/register">Sign on</a> OR else _Profile_ | _Logout_</div>
+		</nav>
+		<div id="top-bar-2"></div>
+		<div id="wrapper">
+			<fieldset>
+			<legend>Enrolled:</legend>
+			    <table class="conferenceList">
+	        <thead>
+	        <tr>
+	            <th>Conference name</th>
+	            <th>Time</th>
+	            <th></th>
+	            <!-- <th></th> -->
+	        </tr>
+	        </thead>
+	        <tbody>
+	                        <tr data-id="2">
+	                <td>Projekto valdymas ir Agile</td>
+	                <td><div title="Starts">2013-10-02</div>
+	<div title="Ends">2013-10-02</div></td>
+					<td><a href="/conference/unenroll?id=2">Unenroll</a></td>
+	                <!-- <td><a href="/conference/update?id=2" class="edit">Edit</a></td> -->
+	            </tr>
+	                    </tbody>
+	   		 </table>
+			
+			</fieldset>
+			
+			
+			<fieldset>
+	            <legend>Conference list:</legend>
+	        <form method="post" action="" id="filters">
+	            <fieldset>
+	                <legend>Search filter</legend>
+	                <div class="formGroup">
+	                    <label for="filterStart">Start date</label>
+	                    <input type="text" name="start" value="$startDate" id="filterStart" class="datePicker">
+	                </div>
+	                <div class="formGroup">
+	                    <label for="filterEnd">End date</label>
+	                    <input type="text" name="end" value="$endDate" id="filterEnd" class="datePicker">
+	                </div>
+	                <div id="tags" class="formGroup">
+	                	<input type="checkbox" name="tag[]" value="workshop" id="workshop"> <label for="workshop">Workshop</label>
+	                	<input type="checkbox" name="tag[]" value="lecture" id="lecture"> <label for="lecture">Lecture</label>
+	                	<input type="checkbox" name="tag[]" value="seminar" id="seminar"> <label for="seminar">Seminar</label>
+	                	<input type="checkbox" name="tag[]" value="conference" id="tconference"> <label for="tconference">Conference</label>
+	                	<input type="checkbox" name="tag[]" value="symposium" id="symposium"> <label for="symposium">Symposium</label>
+	                	<input type="checkbox" name="tag[]" value="colloquium" id="colloquium"> <label for="colloquium">Colloquium</label>
+	                	<input type="checkbox" name="tag[]" value="roundtable" id="roundtable"> <label for="roundtable">Roundtable</label>
+	                </div>
+	                <div class="formGroup">
+	                    <input type="submit" value="Search">
+	                    <input type="reset" value="Reset">
+	                </div>
+	            </fieldset>
+	        </form>
+	
+	        
+	            <div id="conference">
+	                #if ($conferenceList)
+	                    #parse("conference/items.vm")
+	                #end
+	            </div>
+	        </fieldset>
+	    </div>
+	    <div id="conferenceForm"></div>
+	   
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
         <script src="/resources/js/list.js"></script>

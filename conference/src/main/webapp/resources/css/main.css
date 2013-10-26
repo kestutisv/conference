@@ -1,17 +1,68 @@
+* {
+	paddind: 0;
+	margin: 0;
+}
+
+a:link, a:visited {
+	color: #0b0c1e;
+}
+a:hover {
+	color: #252a74;
+}
+a:active {color:#0000FF;}
+
 form {
-    width: 200px;
+    width: auto;
 }
 
 form label {
+	clear: left;
+	float: left;
     display:block;
+    width: 70px;
+    text-transform: capitalize;
+}
+#tags label {
+	clear: none;
+	width: auto;
+}
+#tags-title {
+	float: left;
+}
+form input {
+	float: left;
+	margin-left: 10px;
+}
+.formGroup {
+	clear: left;
+}
+.formGroup input {
+	float: none;
+}
+.formGroup input[type=checkbox] {
+	float: left;
+}
+.formGroup textarea {
+	clear: left;
+	display: block;
+	width: 80%;
+	height: 50px
 }
 
 #filters {
-    width: 150px;
+    /*width: 800px;*/
+    margin-bottom: 10px;
 }
 
 .formGroup {
     margin-top: 10px;
+}
+
+legend {
+	background-color: #fafafa;
+	padding: 3px;
+	margin: 2px;
+	font-size: 18px;
 }
 
 .conferenceList {
@@ -25,4 +76,65 @@ form label {
 .conferenceList td,
 .conferenceList th {
     border: 1px solid #cccccc;
+}
+
+#top-bar {
+	height: 20px;
+	padding: 5px;
+	font-weight: bold;
+	width: 100%;
+	position: fixed;
+	border-bottom: 1px solid #000;
+	background-color: #fcfcfc;
+}
+#top-bar-2 {
+	background: #d2dbda; /* Old browsers */
+	background: -moz-linear-gradient(top,  #d2dbda 0%, #f4f4f4 50%, #f4faff 51%, #a5c8e2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d2dbda), color-stop(50%,#f4f4f4), color-stop(51%,#f4faff), color-stop(100%,#a5c8e2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #d2dbda 0%,#f4f4f4 50%,#f4faff 51%,#a5c8e2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #d2dbda 0%,#f4f4f4 50%,#f4faff 51%,#a5c8e2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #d2dbda 0%,#f4f4f4 50%,#f4faff 51%,#a5c8e2 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #d2dbda 0%,#f4f4f4 50%,#f4faff 51%,#a5c8e2 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2dbda', endColorstr='#a5c8e2',GradientType=0 ); /* IE6-9 */
+	height: 5px;
+	top: 30px;
+	/*border-bottom: 10px solid #000;*/
+	position: fixed;
+	width: 100%;
+}
+#wrapper {
+	padding-top: 40px;
+}
+#top-bar #login {
+	float: right;
+	
+}
+#formName {
+	width: 80%;
+}
+@media screen and (max-width: 660px){
+	#top-bar {
+		position: relative;
+		border: none;
+		height: auto;
+	}
+	#top-bar-2 {
+		display: none;
+	}
+	#top-bar #login {
+		float: none;
+	}
+	#formName {
+		width: 80%;
+	}
+
+	#tags label {
+		
+		float: left;
+	}
+	.formGroup input[type=checkbox] {
+		clear: left;
+		margin-right: 3px;
+		float: left;
+	}
 }

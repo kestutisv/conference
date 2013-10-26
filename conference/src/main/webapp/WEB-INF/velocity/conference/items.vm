@@ -3,8 +3,8 @@
         <thead>
         <tr>
             <th>Conference name</th>
-            <th>Starts</th>
-            <th>Ends</th>
+            <th>Time</th>
+            <th></th>
             <th></th>
         </tr>
         </thead>
@@ -12,8 +12,9 @@
             #foreach($conference in $conferenceList)
             <tr data-id="$conference.getId()">
                 <td>$conference.getName()</td>
-                <td>$conference.getStartDate($dateFormat)</td>
-                <td>$conference.getEndDate($dateFormat)</td>
+                <td><div title="Starts">$conference.getStartDate($dateFormat)</div>
+<div title="Ends">$conference.getEndDate($dateFormat)</div></td>
+				<td><a href="/conference/signup?id=$conference.getId()">Enroll</a></td>
                 <td><a href="/conference/update?id=$conference.getId()" class="edit">Edit</a></td>
             </tr>
             #end

@@ -4,8 +4,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
+
 import lt.nfq.conference.domain.Conference;
 import lt.nfq.conference.service.ConferenceService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -45,21 +48,52 @@ public class ConferenceController {
 
         return "conference/list";
     }
-
+    
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     public String filterList(ModelMap model,
                              @RequestParam(value = "start") Date start,
-                             @RequestParam(value = "end") Date end) {
+                             @RequestParam(value = "end") Date end) {//,
+        //@RequestParam(value = "tags") List<String> tags
 
-        model.addAttribute("conferenceList", conferenceService.getConferencesByDates(start, end));
+        model.addAttribute("conferenceList", conferenceService.getConferencesByDates(start, end));//, tags
         model.addAttribute("dateFormat", getDateFormat());
 
         return "conference/items";
     }
+    
+    @RequestMapping(value = "/new", method = RequestMethod.GET)
+    public String new_one(ModelMap model) {
+        return "conference/new";
+    }
+    
+    @RequestMapping(value = "/new", method = RequestMethod.POST)
+    public String new_save(ModelMap model,
+    		@ModelAttribute("conference") Conference conference) {
+    	if (conferenceService.saveConference(conference)) {
+            //response.put("success", "saved");
+        } else {
+            //response.put("error", "error with saving");
+        }
+    	return "conference/list";
+    }
+    
+    @RequestMapping(value = "/register")
+    public String register() {
+    	return "conference/register";
+    }
+    
+    @RequestMapping(value = "/login")
+    public String login() {
+    	return "conference/login";
+    }
 
     @RequestMapping(value = "/create")
     public String create(ModelMap model) {
-        model.addAttribute("conference", new Conference());
+    	Conference con = new Conference();
+    	//Date date = new Date(2013, 10, 24);
+    	//con.setStartDate(date);
+    	//con.setEndDate(date);
+        model.addAttribute("conference", con);
         return "conference/form";
     }
 

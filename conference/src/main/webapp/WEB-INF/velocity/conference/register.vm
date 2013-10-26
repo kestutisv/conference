@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Conference list</title>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.min.css" type="text/css">
+        #parse("blocks/head.vm")
+    </head>
+    <body>
+	    <nav id="top-bar">
+				<a href="/conference/list">Conferences</a> | <a href="/conference/new">Create a conference (if not logged in then redirects to register in the system)</a>
+				<div id="login"><a href="/conference/login">Sign in</a> | <a href="/conference/register">Sign on</a> OR else _Profile_ | _Logout_</div>
+		</nav>
+		<div id="top-bar-2"></div>
+		<div id="wrapper">
+		
+<form method="post" action="/conference/new">
+    <div class="formGroup">
+        <label for="username">username</label>
+        <input type="text" name="username" id="username" value="" />
+    </div>
+    <div class="formGroup">
+        <label for="password">password</label>
+        <input type="password" name="password" value="" id="password" />
+    </div>
+    <div class="formGroup">
+        <label for="name">name</label>
+        <input type="text" name="name" value="" id="name" />
+    </div>
+    <div class="formGroup">
+        <label for="surname">surname</label>
+        <input type="text" name="surname" value="" id="surname" />
+    </div>
+    <div class="formGroup">
+        <label for="town">town</label>
+        <input type="text" name="town" value="" id="town" />
+    </div>
+    <div class="formGroup">
+        <label for="country">country</label>
+        <input type="text" name="country" value="" id="country" />
+    </div>
+    <div class="formGroup">
+    	<input type="submit" value="Register">
+    </div>
+</form>
+		</div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script src="/resources/js/list.js"></script>
+    </body>
+</html>

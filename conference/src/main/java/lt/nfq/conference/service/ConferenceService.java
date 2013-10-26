@@ -18,6 +18,10 @@ public class ConferenceService {
     public List<Conference> getConferencesByDates(Date start, Date end) {
         return conferenceMapper.getConferencesByDates(start, end);
     }
+    
+    public List<Conference> getConferences() {
+        return conferenceMapper.getConferences();
+    }
 
     public Conference getConference(int id) {
         return conferenceMapper.getConference(id);
@@ -27,11 +31,11 @@ public class ConferenceService {
         return conferenceMapper.updateConference(conference) > 0;
     }
 
-    public void saveConference(Conference conference) {
+    public boolean saveConference(Conference conference) {
     	if (conference.getId() != null) {
-    		conferenceMapper.updateConference(conference);
+    		return conferenceMapper.updateConference(conference) > 0;
     	} else {
-    		conferenceMapper.insertConference(conference);
+    		return conferenceMapper.insertConference(conference) > 0;
     	}
     }
 }
