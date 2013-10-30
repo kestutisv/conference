@@ -19,7 +19,7 @@ form label {
 	clear: left;
 	float: left;
     display:block;
-    width: 70px;
+    width: 120px;
     text-transform: capitalize;
 }
 #tags label {

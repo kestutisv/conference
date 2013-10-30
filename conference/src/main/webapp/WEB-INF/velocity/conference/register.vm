@@ -15,32 +15,32 @@
 		
 <form method="post" action="/conference/new">
     <div class="formGroup">
-        <label for="username">username</label>
-        <input type="text" name="username" id="username" value="" />
+        <label for="username">username*</label>
+        <input type="email" name="username" id="username" placeholder="Your email" required autofocus />
     </div>
     <div class="formGroup">
-        <label for="password">password</label>
-        <input type="password" name="password" value="" id="password" />
+        <label for="password">password*</label>
+        <input type="password" name="password" placeholder="*" id="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Minimum 6 characters, must contain a digit, a lower-case letter and an upper-case letter." />
     </div>
     <div class="formGroup">
-        <label for="password2">Repeat password</label>
-        <input type="password" name="password2" value="" id="password2" />
+        <label for="password2">Repeat password*</label>
+        <input type="password" name="password2"  placeholder="*" id="password2" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Minimum 6 characters, must contain a digit, a lower-case letter and an upper-case letter." />
     </div>
     <div class="formGroup">
-        <label for="name">name</label>
-        <input type="text" name="name" value="" id="name" />
+        <label for="name">name*</label>
+        <input type="text" name="name" placeholder="First name" id="name" required />
     </div>
     <div class="formGroup">
-        <label for="surname">surname</label>
-        <input type="text" name="surname" value="" id="surname" />
+        <label for="surname">surname*</label>
+        <input type="text" name="surname" placeholder="Last name" id="surname" required />
     </div>
     <div class="formGroup">
-        <label for="town">town</label>
-        <input type="text" name="town" value="" id="town" />
+        <label for="town">town*</label>
+        <input type="text" name="town" placeholder="New York" id="town" required />
     </div>
     <div class="formGroup">
-        <label for="country">country</label>
-        <input type="text" name="country" value="" id="country" />
+        <label for="country">country*</label>
+        <input type="text" name="country"  placeholder="USA" id="country" required />
     </div>
     <div class="formGroup">
     	<input type="submit" value="Register">

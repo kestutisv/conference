@@ -15,19 +15,19 @@
 		
 <form method="post" action="/conference/new">
     <div class="formGroup">
-        <label for="formName">name</label>
-        <input type="text" name="name" id="formName" value="" />
+        <label for="formName">name*</label>
+        <input type="text" name="name" id="formName" placeholder="Conference name" required autofocus />
     </div>
     <div class="formGroup">
-        <label for="formStart">Start date</label>
-        <input type="text" name="startDate" value="" id="formStart" class="datePicker" />
+        <label for="formStart">Start date*</label>
+        <input type="text" name="startDate" value="" id="formStart" class="datePicker" required />
     </div>
     <div class="formGroup">
-        <label for="formEnd">End date</label>
-        <input type="text" name="endDate" value="" id="formEnd" class="datePicker" />
+        <label for="formEnd">End date*</label>
+        <input type="text" name="endDate" value="" id="formEnd" class="datePicker" required />
     </div>
     <div id="tags" class="formGroup">
-    	<div id="tags-title">Tags:</div>
+    	<div id="tags-title">Tags*:</div>
     	<input type="checkbox" name="tag[]" value="workshop" id="workshop"> <label for="workshop">Workshop</label>
     	<input type="checkbox" name="tag[]" value="lecture" id="lecture"> <label for="lecture">Lecture</label>
     	<input type="checkbox" name="tag[]" value="seminar" id="seminar"> <label for="seminar">Seminar</label>
@@ -37,13 +37,13 @@
     	<input type="checkbox" name="tag[]" value="roundtable" id="roundtable"> <label for="roundtable">Roundtable</label>
     </div>
     <div class="formGroup">
-        <label for="description">Description</label>
-        <textarea name="description" id="description"></textarea>
+        <label for="description">Description*</label>
+        <textarea name="description" id="description" required></textarea>
     </div>
     <div class="formGroup">
-        <label for="location">Location</label>
+        <label for="location">Location*</label>
         <!-- <input type="text" name="location" id="location" value="" placeholder="Address" /> -->
-        <textarea name="description" id="description" placeholder="Address"></textarea>
+        <textarea name="location" id="location" placeholder="Address" required></textarea>
     </div>
     <div class="formGroup">
     	<input type="submit" value="Create">
