@@ -23,6 +23,10 @@
         <input type="password" name="password" value="" id="password" />
     </div>
     <div class="formGroup">
+        <label for="password2">Repeat password</label>
+        <input type="password" name="password2" value="" id="password2" />
+    </div>
+    <div class="formGroup">
         <label for="name">name</label>
         <input type="text" name="name" value="" id="name" />
     </div>
