@@ -21,10 +21,10 @@
             }
         });
     }
-	    jQuery("form").submit(function (e) {
-	    	e.preventDefault();
-	    	conference_list(e);
-	    });
+    jQuery("form#filters").submit(function (e) {
+    	e.preventDefault();
+    	conference_list(e);
+    });
     
     
     function edit() {

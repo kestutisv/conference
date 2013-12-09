@@ -9,6 +9,7 @@ import java.util.List;
 import lt.nfq.conference.domain.Conference;
 import lt.nfq.conference.service.ConferenceService;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -41,7 +42,10 @@ public class ConferenceController {
         model.addAttribute("dateFormat", simpleDateFormat);
 
         try {
-            model.addAttribute("conferenceList", conferenceService.getConferencesByDates(simpleDateFormat.parse(startDate), simpleDateFormat.parse(endDate)));
+            model.addAttribute("conferenceList", 
+            		conferenceService.getConferencesByDates(simpleDateFormat.parse(startDate), 
+            				simpleDateFormat.parse(endDate)
+            				));//new Integer[] {1,2,3,4,5,6,7}
         } catch (ParseException e) {
 
         }
@@ -52,10 +56,13 @@ public class ConferenceController {
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     public String filterList(ModelMap model,
                              @RequestParam(value = "start") Date start,
-                             @RequestParam(value = "end") Date end) {//,
+                             @RequestParam(value = "end") Date end, 
+                             @RequestParam(value = "tags") Integer[] tags) {//,
         //@RequestParam(value = "tags") List<String> tags
-
-        model.addAttribute("conferenceList", conferenceService.getConferencesByDates(start, end));//, tags
+    	//
+        model.addAttribute("conferenceList", 
+        		conferenceService.getConferencesByDates(start, end));//, tags
+        //StringUtils.join(tags, ",")
         model.addAttribute("dateFormat", getDateFormat());
 
         return "conference/items";
@@ -114,6 +121,19 @@ public class ConferenceController {
         } else {
             response.put("error", "error with saving");
         }
+        response.put("status", "ok");
+        return response;
+    }
+    
+    @RequestMapping(value = "/get", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    HashMap<String, String> getTags() {
+        HashMap<String, String> response = new HashMap<String, String>();
+        int i=0;
+        for(Integer s: conferenceService.getConferencesCategories())
+        	response.put(String.valueOf(i++), String.valueOf(s));
+
         response.put("status", "ok");
         return response;
     }

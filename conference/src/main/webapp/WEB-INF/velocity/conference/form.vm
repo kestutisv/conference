@@ -12,4 +12,24 @@
         <label for="formEnd">End date</label>
         <input type="text" name="endDate" value="$!{conference.getEndDate($dateFormat)}" id="formEnd" class="datePicker" />
     </div>
+    <!--
+    <div id="tags" class="formGroup">
+    	<div id="tags-title">Tags*:</div>
+    	<input type="checkbox" name="tag[]" value="workshop" id="workshop"> <label for="workshop">Workshop</label>
+    	<input type="checkbox" name="tag[]" value="lecture" id="lecture"> <label for="lecture">Lecture</label>
+    	<input type="checkbox" name="tag[]" value="seminar" id="seminar"> <label for="seminar">Seminar</label>
+    	<input type="checkbox" name="tag[]" value="conference" id="tconference"> <label for="tconference">Conference</label>
+    	<input type="checkbox" name="tag[]" value="symposium" id="symposium"> <label for="symposium">Symposium</label>
+    	<input type="checkbox" name="tag[]" value="colloquium" id="colloquium"> <label for="colloquium">Colloquium</label>
+    	<input type="checkbox" name="tag[]" value="roundtable" id="roundtable"> <label for="roundtable">Roundtable</label>
+    </div>
+    -->
+    <div class="formGroup">
+        <label for="description">Description*</label>
+        <textarea name="description" id="description" required>$!{conference.getDescription()}</textarea>
+    </div>
+    <div class="formGroup">
+        <label for="location">Location*</label>
+        <textarea name="location" id="location" placeholder="Address" required>$!{conference.getLocation()}</textarea>
+    </div>
 </form>

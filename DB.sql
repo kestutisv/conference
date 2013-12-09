@@ -5,8 +5,8 @@ CREATE TABLE conference (
     name VARCHAR(100) NOT NULL,
     startDate DATETIME NOT NULL,
     endDate DATETIME NOT NULL,
-    description text NOT NULL,
-    location text NOT NULL--address --venue --vieta
+    description LONGVARCHAR NOT NULL,
+    location LONGVARCHAR NOT NULL--address --venue --vieta
 );
 --accommodation --apgyvendinimas
 
@@ -16,16 +16,16 @@ CREATE INDEX endDate ON conference (endDate);
 CREATE TABLE conferenceCategory (
 	id IDENTITY PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    description text NOT NULL
+    description LONGVARCHAR NOT NULL
 );
 
 CREATE TABLE conferenceCategories (
-	conferenceId,
-	conferenceCategoryId
+	conferenceId INTEGER,
+	conferenceCategoryId INTEGER
 );
 CREATE TABLE conferenceAttendees (
-	conferenceId,
-	userId
+	conferenceId INTEGER
+	userId INTEGER
 );
 
 CREATE TABLE user (
@@ -35,7 +35,7 @@ CREATE TABLE user (
 	email VARCHAR(100) NOT NULL,
 	town VARCHAR(100) NOT NULL, --select from a list?
 	country VARCHAR(100) NOT NULL,--select from a list?
-	password VARCHAR(255) NOT NULL,
-	type --is it needed?
+	password VARCHAR(255) NOT NULL--,
+	--type --is it needed?
 );
 

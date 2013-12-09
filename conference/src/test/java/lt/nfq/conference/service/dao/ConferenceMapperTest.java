@@ -53,7 +53,9 @@ public class ConferenceMapperTest extends DaoTestBase {
 
 	@Test
 	public void testGetConferencesByDates() {
-		List<Conference> result = mapper.getConferencesByDates(parseDate("2013-10-01 00:00:00"), parseDate("2013-10-03 00:00:00"));
+		List<Conference> result = mapper.getConferencesByDates(parseDate("2013-10-01 00:00:00"), 
+				parseDate("2013-10-03 00:00:00") 
+				);//new Integer[] {1,2,3,4,5,6,7}
 		assertEquals(1, result.size());
 		assertTrue(containsConference(result, "Conference B", "2013-10-01 17:00:00", "2013-10-02 18:00:00"));
 	}

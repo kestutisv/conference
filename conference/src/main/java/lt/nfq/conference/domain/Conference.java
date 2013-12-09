@@ -8,6 +8,9 @@ public class Conference {
     private String name;
     private Date startDate;
     private Date endDate;
+    private String description;
+    private String location;
+    private Integer tags[];
 
     public Integer getId() {
         return id;
@@ -47,6 +50,30 @@ public class Conference {
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public Integer[] getTags() {
+		return tags;
+	}
+
+	public void setTags(Integer tags[]) {
+		this.tags = tags;
+	}
 
 
 
